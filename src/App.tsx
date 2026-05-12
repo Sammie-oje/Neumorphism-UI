@@ -1,6 +1,7 @@
 import Button from "./components/Button.tsx";
 import Nav from "./components/Nav.tsx";
 import NeuSwitch from "./components/Switch.tsx";
+import NeuCheckbox from "./components/Checkbox.tsx";
 import {
     Card,
     CardTitle,
@@ -41,6 +42,7 @@ function App() {
                     </CardContent>
                     <CardFooter>
                         <NeuSwitch />
+                        <NeuCheckbox />
                     </CardFooter>
                 </Card>
             </div>
