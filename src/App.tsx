@@ -1,6 +1,7 @@
 import Button from "./components/Button.tsx";
 import Nav from "./components/Nav.tsx";
 import NeuSwitch from "./components/Switch.tsx";
+import NeuSlider from "./components/Slider.tsx";
 import NeuCheckbox from "./components/Checkbox.tsx";
 import {
     Card,
@@ -41,8 +42,7 @@ function App() {
                         </ul>
                     </CardContent>
                     <CardFooter>
-                        <NeuSwitch />
-                        <NeuCheckbox />
+                        <NeuSlider variant={"secondary"} />
                     </CardFooter>
                 </Card>
             </div>
