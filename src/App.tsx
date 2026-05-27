@@ -3,6 +3,7 @@ import Nav from "./components/Nav.tsx";
 import NeuSwitch from "./components/Switch.tsx";
 import NeuSlider from "./components/Slider.tsx";
 import NeuCheckbox from "./components/Checkbox.tsx";
+import NeuProgress from "./components/Progress.tsx";
 import {
     Card,
     CardTitle,
@@ -44,6 +45,45 @@ function App() {
                     <CardFooter>
                         <NeuSlider variant={"secondary"} />
                     </CardFooter>
+                </Card>
+
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Progress bars</CardTitle>
+                        <CardDescription>
+                            Simple vertical/horizontal bars
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4 flex h-36 gap-4">
+                        <NeuProgress
+                            orientation={"vertical"}
+                            max={100}
+                            value={25}
+                        />
+                        <NeuProgress
+                            orientation={"vertical"}
+                            max={100}
+                            value={50}
+                        />
+                        <NeuProgress
+                            orientation={"vertical"}
+                            max={100}
+                            value={75}
+                        />
+                    </CardContent>
+                    <CardContent className="space-y-4 ">
+                        <NeuProgress
+                            variant={"secondary"}
+                            max={100}
+                            value={25}
+                        />
+                        <NeuProgress
+                          
+                            max={100}
+                            value={50}
+                        />
+                        <NeuProgress max={100} value={75} />
+                    </CardContent>
                 </Card>
             </div>
         </>
