@@ -1,5 +1,6 @@
 import Button from "./components/Button.tsx";
 import Nav from "./components/Nav.tsx";
+import Input from "./components/Input.tsx";
 import NeuSwitch from "./components/Switch.tsx";
 import NeuSlider from "./components/Slider.tsx";
 import NeuCheckbox from "./components/Checkbox.tsx";
@@ -77,13 +78,12 @@ function App() {
                             max={100}
                             value={25}
                         />
-                        <NeuProgress
-                          
-                            max={100}
-                            value={50}
-                        />
+                        <NeuProgress max={100} value={50} />
                         <NeuProgress max={100} value={75} />
                     </CardContent>
+                    <CardFooter>
+                        <Input></Input>
+                    </CardFooter>
                 </Card>
             </div>
         </>
