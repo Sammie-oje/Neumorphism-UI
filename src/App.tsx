@@ -13,6 +13,7 @@ import {
     CardContent,
     CardFooter
 } from "./components/Card.tsx";
+import { TabsRoot, TabsList, TabsTab, TabsPanel } from "./components/Tabs.tsx";
 
 function App() {
     return (
@@ -84,6 +85,24 @@ function App() {
                     <CardFooter>
                         <Input></Input>
                     </CardFooter>
+                </Card>
+
+                <Card>
+                    <CardHeader>
+                        <TabsRoot>
+                            <TabsList className={"space-x-4"}>
+                                <TabsTab value={"overview"}>Overview</TabsTab>
+                                <TabsTab value={"user"}>User</TabsTab>
+                            </TabsList>
+                            <TabsPanel value={"overview"}>
+                                <h2>This is overview</h2>
+                                <p>This is more info about the overview</p>
+                            </TabsPanel>
+                            <TabsPanel value={"user"}>
+                                <h2>This is for the user</h2>
+                            </TabsPanel>
+                        </TabsRoot>
+                    </CardHeader>
                 </Card>
             </div>
         </>
