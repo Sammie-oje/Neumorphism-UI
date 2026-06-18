@@ -14,7 +14,7 @@ import {
     CardFooter
 } from "./components/Card.tsx";
 import { TabsRoot, TabsList, TabsTab, TabsPanel } from "./components/Tabs.tsx";
-import { SkipBack, SkipForward, Play, Pause } from "lucide-react";
+import { SkipBack, SkipForward, Play, Pause, Minus, Plus } from "lucide-react";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { useState } from "react";
 
@@ -49,8 +49,8 @@ function App() {
                     ready to use in your projects.
                 </p>
             </section>
-            <section>
-                <div className="flex-1 space-y-6">
+            <section className="flex flex-col md:flex-row items-start max-w-7xl mx-auto gap-8 my-12">
+                <div className="flex-1 space-y-6 w-full">
                     <Card>
                         <CardHeader>
                             <CardTitle>Music Player</CardTitle>
@@ -214,6 +214,49 @@ function App() {
                                     />
                                 </LineChart>
                             </ResponsiveContainer>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Your move goal</CardTitle>
+                            <CardDescription>
+                                Track your weekly move goals here
+                            </CardDescription>
+                            <div className="flex gap-6 justify-center items-center mt-4">
+                                <Button
+                                    size={"icon"}
+                                    shape={"circle"}
+                                    aria-label="Decrease daily calorie goal"
+                                >
+                                    <Minus />
+                                </Button>
+
+                                <div className="text-center">
+                                    <CardTitle className="text-2xl">
+                                        350
+                                    </CardTitle>
+                                    <p>CALORIES/DAY</p>
+                                </div>
+
+                                <Button
+                                    size={"icon"}
+                                    shape={"circle"}
+                                    aria-label="Increase daily calorie goal"
+                                >
+                                    <Plus />
+                                </Button>
+                            </div>
+                        </CardHeader>
+                        <CardContent className="flex items-end justify-center gap-4 h-48">
+                            {[85, 55, 24, 89, 100, 28, 44, 11, 33, 76].map(
+                                value => (
+                                    <NeuProgress
+                                        key={value}
+                                        value={value}
+                                        orientation={"vertical"}
+                                    />
+                                )
+                            )}
                         </CardContent>
                     </Card>
                 </div>
