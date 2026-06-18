@@ -15,12 +15,27 @@ import {
 } from "./components/Card.tsx";
 import { TabsRoot, TabsList, TabsTab, TabsPanel } from "./components/Tabs.tsx";
 import { SkipBack, SkipForward, Play, Pause } from "lucide-react";
+import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { useState } from "react";
 
 function App() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [selectedPlan, setSelectedPlan] = useState("starter");
 
+    const revenueData = [
+        { name: "Jan", value: 3000 },
+        {
+            name: "Feb",
+            value: 9500
+        },
+        { name: "Mar", value: 8000 },
+        { name: "Apr", value: 8500 },
+        { name: "May", value: 12200 },
+        {
+            name: "Jun",
+            value: 15031
+        }
+    ];
     return (
         <main>
             <Nav />
@@ -176,7 +191,32 @@ function App() {
                         </CardFooter>
                     </Card>
                 </div>
-                <div className="flex-1 space-y-6"></div>
+                <div className="flex-1 space-y-6 w-full">
+                    <Card>
+                        <CardHeader>
+                            <div className="flex items-center justify-between">
+                                <CardTitle>Total Revenue</CardTitle>
+                            </div>
+                            <CardTitle className="text-3xl font-bold">
+                                $15,231.89
+                            </CardTitle>
+                            <p className="text-sm">+201% from last month</p>
+                        </CardHeader>
+                        <CardContent className="h-48">
+                            <ResponsiveContainer width={"100%"} height={"100%"}>
+                                <LineChart data={revenueData}>
+                                    <Line
+                                        type={"monotone"}
+                                        dataKey={"value"}
+                                        stroke="var(--color-primary)"
+                                        strokeWidth={3}
+                                        dot={{ fill: "var(--color-primary)" }}
+                                    />
+                                </LineChart>
+                            </ResponsiveContainer>
+                        </CardContent>
+                    </Card>
+                </div>
             </section>
         </main>
     );
