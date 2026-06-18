@@ -259,6 +259,46 @@ function App() {
                             )}
                         </CardContent>
                     </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Cookie Settings</CardTitle>
+                            <CardDescription>
+                                Manage your cookie settings here.
+                            </CardDescription>
+                        </CardHeader>
+
+                        <CardContent className="space-y-4">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-base font-medium">
+                                        Strictly Necessary
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                        These cookies are essential in order to
+                                        use the website and use its features
+                                    </p>
+                                </div>
+                                <NeuSwitch disabled defaultChecked />
+                            </div>
+
+                            <div className="flex items-center justify-between">
+                                <div className="space-y-0.5">
+                                    <p className="text-base font-medium">
+                                        Functional Cookies
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                        These cookies allow the website to
+                                        provide personalized functionality
+                                    </p>
+                                </div>
+                                <NeuSwitch />
+                            </div>
+                        </CardContent>
+                        <CardFooter>
+                            <Button>Save Preferences</Button>
+                        </CardFooter>
+                    </Card>
                 </div>
             </section>
         </main>
