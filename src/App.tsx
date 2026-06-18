@@ -19,6 +19,8 @@ import { useState } from "react";
 
 function App() {
     const [isPlaying, setIsPlaying] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState("starter");
+
     return (
         <main>
             <Nav />
@@ -77,6 +79,7 @@ function App() {
                                         aria-label={
                                             isPlaying ? "Pause" : "Play"
                                         }
+                                        onClick={() => setIsPlaying(!isPlaying)}
                                         className="w-20 h-12"
                                         size={"icon"}
                                         shape={"circle"}
@@ -99,6 +102,78 @@ function App() {
                                 </div>
                             </div>
                         </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Upgrade your subscription</CardTitle>
+                            <CardDescription>
+                                You are currently on the free plan. Upgrade to
+                                the pro plan to get access to all features.
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="space-y-1">
+                                <CardTitle>Plan</CardTitle>
+                                <CardDescription>
+                                    Select the plan that best fits your needs
+                                </CardDescription>
+                                <div className="grid grid-cols-2 gap-4 mt-4">
+                                    <div
+                                        className={`flex flex-col p-4 rounded-lg cursor-pointer transition-all border-3 border-border duration-350 ${selectedPlan === "starter" ? "bg-primary/10 shadow-inset" : "bg-background shadow-raised"}`}
+                                        onClick={() =>
+                                            setSelectedPlan("starter")
+                                        }
+                                    >
+                                        <div className="flex items-center space-x-2 mb-2">
+                                            <NeuCheckbox
+                                                id="starter-plan"
+                                                checked={
+                                                    selectedPlan === "starter"
+                                                }
+                                            />
+                                            <span className="text-sm">
+                                                Starter Plan
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        className={`flex flex-col p-4 rounded-lg cursor-pointer transition-all border-3 border-border duration-350 ${selectedPlan === "pro" ? "bg-primary/10 shadow-inset" : "bg-background shadow-raised"}`}
+                                        onClick={() => setSelectedPlan("pro")}
+                                    >
+                                        <div className="flex items-center space-x-2 mb-2">
+                                            <NeuCheckbox
+                                                id="pro-plan"
+                                                checked={selectedPlan === "pro"}
+                                            />
+                                            <span className="text-sm">
+                                                Pro Plan
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-4">
+                                <label
+                                    htmlFor="notes"
+                                    className="mb-2 block text-xs text-muted-foreground"
+                                >
+                                    Notes
+                                </label>
+                                <Input placeholder="Notes" id="notes" />
+                                <div className="mt-4 flex items-center gap-2">
+                                    <NeuCheckbox id="terms" />
+                                    <label htmlFor="terms">
+                                        I agree to the terms and conditions
+                                    </label>
+                                </div>
+                            </div>
+                        </CardContent>
+                        <CardFooter className="flex gap-4">
+                            <Button variant="destructive">Cancel</Button>
+                            <Button variant="primary">Upgrade Plan</Button>
+                        </CardFooter>
                     </Card>
                 </div>
                 <div className="flex-1 space-y-6"></div>
